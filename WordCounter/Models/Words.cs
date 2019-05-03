@@ -4,9 +4,9 @@ namespace WordCounter.Models
 {
   public class Words
   {
-    public string userWord {get; set;}
+    public string UserWord {get; set;}
     // public int Id {get; set;}
-    public string userSentence {get; set;}
+    public string UserSentence {get; set;}
     // private static List<Words> _instances = new List<Words> {};
 
     public Words (string userWord, string userSentence)
