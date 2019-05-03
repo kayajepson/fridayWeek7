@@ -16,6 +16,7 @@ namespace WordCounter.Models
       UserSentence = userSentence.ToLower();
       _instances.Add(this);
       Id = _instances.Count;
+      RepeatCount = RepeatCounter(UserWord, UserSentence);
       // RepeatCount.RepeatCounter(string UserWord, string UserSentence);
     }
 

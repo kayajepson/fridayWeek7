@@ -12,13 +12,14 @@ namespace WordCounter.Controllers
     {
       List<Words> allWords = Words.GetAll();
       return View(allWords);
+
     }
 
-    // [HttpGet("/words")]
-    // public ActionResult RepeatCounter()
-    // {
-    //   return RepeatCounter();
-    // }
+    [HttpGet("/words/repeat")]
+    public ActionResult RepeatCounter(string userWord, string userSentence)
+    {
+      return RepeatCounter(userWord, userSentence);
+    }
 
     [HttpGet("/words/new")]
     public ActionResult New()
