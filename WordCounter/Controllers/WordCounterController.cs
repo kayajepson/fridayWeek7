@@ -14,6 +14,12 @@ namespace WordCounter.Controllers
       return View(allWords);
     }
 
+    [HttpGet("/words")]
+    public ActionResult RepeatCounter(string userWord, string userSentence)
+    {
+      RepeatCounter();
+    }
+
     [HttpGet("/words/new")]
     public ActionResult New()
     {

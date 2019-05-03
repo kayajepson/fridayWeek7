@@ -11,10 +11,50 @@ namespace WordCounter.Models
 
     public Words (string userWord, string userSentence)
     {
-      UserWord = userWord;
-      UserSentence = userSentence;
+      UserWord = userWord.ToLower();
+      UserSentence = userSentence.ToLower();
       _instances.Add(this);
       Id = _instances.Count;
+    }
+
+    public int RepeatCounter (string userWord, string userSentence)
+    {
+      UserWord = userWord.ToLower();
+      UserSentence = userSentence.ToLower();
+      string[] sentenceList = UserSentence.Split(" ");
+      int timesAppeared = 0;
+      foreach (string i in sentenceList)
+      {
+        if (i == userWord)
+        {
+          timesAppeared += 1;
+        }
+        else
+        {
+          timesAppeared += 0;
+        }
+      }
+      return timesAppeared;
+    }
+
+    
+    public bool SentenceContainsWord()
+    {
+      string[] sentenceArray = UserSentence.Split(" ");
+      if (((IList<string>)sentenceArray).Contains(UserWord))
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+
+    public bool RemoveNonAlphabet(char userInput)
+    {
+      return Char.IsLetter(userInput);
     }
 
 
