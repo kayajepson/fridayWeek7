@@ -23,6 +23,20 @@ namespace WordCounter.Tests
           Assert.IsInstanceOfType(showView, typeof(ViewResult));
       }
 
+      [TestMethod]
+          public void SentenceContainsWord_UserSentenceContainsUserWord_True()
+          {
+            WordCountGen newComparison = new WordCountGen();
+            Assert.AreEqual(true, newComparison.SentenceContainsWord());
+          }
+
+          [TestMethod]
+              public void WordInSentence_RepeatCounter()
+              {
+                WordCountGen newComparison = new WordCountGen();
+                Assert.AreEqual(2, newComparison.RepeatCounter("cat"));
+              }
+
 
     // [TestMethod]
     // public void Index_HasCorrectModelType_WordsList()

@@ -7,6 +7,7 @@ namespace WordCounter.Models
     public string UserWord {get; set;}
     public int Id {get; set;}
     public string UserSentence {get; set;}
+    public int RepeatCount {get; set;}
     private static List<Words> _instances = new List<Words> {};
 
     public Words (string userWord, string userSentence)
@@ -15,6 +16,7 @@ namespace WordCounter.Models
       UserSentence = userSentence.ToLower();
       _instances.Add(this);
       Id = _instances.Count;
+      // RepeatCount.RepeatCounter(string UserWord, string UserSentence);
     }
 
     public int RepeatCounter (string userWord, string userSentence)
@@ -37,7 +39,7 @@ namespace WordCounter.Models
       return timesAppeared;
     }
 
-    
+
     public bool SentenceContainsWord()
     {
       string[] sentenceArray = UserSentence.Split(" ");
@@ -52,10 +54,10 @@ namespace WordCounter.Models
     }
 
 
-    public bool RemoveNonAlphabet(char userInput)
-    {
-      return Char.IsLetter(userInput);
-    }
+    // public bool RemoveNonAlphabet(char userInput)
+    // {
+    //   return Char.IsLetter(userInput);
+    // }
 
 
     public int GetId()
