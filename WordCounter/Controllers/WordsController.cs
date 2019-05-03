@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Travel.Models;
+using WordCounter.Models;
 using System.Collections.Generic;
 
 namespace WordCounter.Controllers
