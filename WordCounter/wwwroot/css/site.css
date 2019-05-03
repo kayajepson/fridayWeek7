@@ -63,7 +63,9 @@ input {
   margin-top: 10px;
 }
 body {
-  padding-left: 20%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 5%;
 }
 
 a {

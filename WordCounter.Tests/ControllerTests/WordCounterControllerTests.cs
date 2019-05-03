@@ -11,65 +11,48 @@ namespace WordCounter.Tests
   {
 
     [TestMethod]
-    public void Show_ReturnsCorrectView_True()
-    {
-      //Arrange
-      WordCounterController controller = new WordCounterController();
-
-      //Act
-      ActionResult showView = controller.Show();
-
-      //Assert
-      Assert.IsInstanceOfType(showView, typeof(ViewResult));
-    }
-
-    [TestMethod]
-    public void SentenceContainsWord_UserSentenceContainsUserWord_True()
-    {
-      WordCountGen newComparison = new WordCountGen();
-      Assert.AreEqual(true, newComparison.SentenceContainsWord());
-    }
-
-    [TestMethod]
-    public void WordInSentence_RepeatCounter()
-    {
-      WordCountGen newComparison = new WordCountGen();
-      Assert.AreEqual(2, newComparison.RepeatCounter("cat"));
-    }
-
-
-    [TestMethod]
       public void GetId_ItemsInstantiateWithAnIdReturns_Int()
       {
         //Arrange
-        string word = "cat";
-        Word newWord = new Word(word);
+        Words myWords = new Words("cat", "the cat in the hat");
 
         //Act
-        int result = newWord.GetId();
+        int result = myWords.GetId();
 
         //Assert
         Assert.AreEqual(1, result);
       }
 
-      [TestMethod]
-        public void GetId_ItemsInstantiateWithAnIdReturns_Int()
-        {
-          //Arrange
-          string word = "cat";
-          Word newWord = new Word(word);
+    [TestMethod]
+    public void Show_ReturnsCorrectView_True()
+    {
+      //Arrange
+      Words myWords = new Words("cat", "the cat in the hat");
+      WordsController controller = new WordsController();
 
-          //Act
-          int result = newWord.GetId();
+      //Act
+      ActionResult showView = controller.Show(1);
 
-          //Assert
-          Assert.AreEqual(1, result);
-        }
+      //Assert
+      Assert.IsInstanceOfType(showView, typeof(ViewResult));
+    }
+
+
+    [TestMethod]
+     public void RepeatCounter_ReturnsOne_IntOne()
+     {
+         // Arrange
+         Words myWords = new Words("cat", "the cat in the hat");
+
+         // Assert
+         Assert.AreEqual(1, myWords.RepeatCount);
+     }
 
     [TestMethod]
     public void Index_HasCorrectModelType_WordsList()
     {
       //Arrange
+      Words myWords = new Words("cat", "the cat in the hat");
       WordsController controller = new WordsController();
       ViewResult indexView = controller.Index() as ViewResult;
 
@@ -84,10 +67,11 @@ namespace WordCounter.Tests
     public void Create_ReturnsCorrectActionType_RedirectToActionResult()
     {
       //Arrange
+      // Words myWords = new Words("cat", "the cat in the hat");
       WordsController controller = new WordsController();
 
       //Act
-      IActionResult view = controller.Create("Cat");
+      IActionResult view = controller.Create("cat", "the cat in the hat");
 
       //Assert
       Assert.IsInstanceOfType(view, typeof(RedirectToActionResult));
@@ -98,7 +82,7 @@ namespace WordCounter.Tests
     {
       //Arrange
       WordsController controller = new WordsController();
-      RedirectToActionResult actionResult = controller.Create("cat") as RedirectToActionResult;
+      RedirectToActionResult actionResult = controller.Create("cat", "the cat in the hat") as RedirectToActionResult;
 
       //Act
       string result = actionResult.ActionName;
