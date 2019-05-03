@@ -4,15 +4,15 @@ using System.Collections.Generic;
 
 namespace WordCounter.Controllers
 {
-  public class WordCounterController : Controller
+  public class WordsController : Controller
   {
 
-    // [HttpGet("/words")]
-    // public ActionResult Index()
-    // {
-    //   // List<Words> allWords = Words.GetAll();
-    //   // return View(allWords);
-    // }
+    [HttpGet("/words")]
+    public ActionResult Index()
+    {
+      List<Words> allWords = Words.GetAll();
+      return View(allWords);
+    }
 
     [HttpGet("/words/new")]
     public ActionResult New()
@@ -20,18 +20,12 @@ namespace WordCounter.Controllers
       return View();
     }
 
-    [HttpGet("/words/show")]
-    public ActionResult Show()
+    [HttpPost("/words")]
+    public ActionResult Create(string userWord, string userSentence)
     {
-      return View();
+      Words myWords = new Words(userWord, userSentence);
+      return RedirectToAction("Index");
     }
-
-    // [HttpPost("/words")]
-    // public ActionResult Create(string userWord, string userSentence)
-    // {
-    //   // Words myWords = new Words(cityName, date, journal, companion);
-    //   // return RedirectToAction("Index");
-    // }
     // [HttpPost("/items/delete")]
     // public ActionResult DeleteAll()
     // {
@@ -39,11 +33,11 @@ namespace WordCounter.Controllers
     //   return View();
     // }
     //
-    // [HttpGet("/words/{id}")]
-    // public ActionResult Show(int id)
-    // {
-    //   Words words = Words.Find(id);
-    //   return View(words);
-    // }
+    [HttpGet("/words/{id}")]
+    public ActionResult Show(int id)
+    {
+      Words words = Words.Find(id);
+      return View(words);
+    }
   }
 }
