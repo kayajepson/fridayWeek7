@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-  <link href="~/css/site.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+  @{
+    Layout = "_Layout";
+  }
   @using WordCounter.Models;
 
-  <h1>Words I've Been</h1>
+  <h1>Word Counter</h1>
 
   <ul>
   @if (Model.Count == 0)
   {
-    <p>You never go anywhere!</p>
+    <p>You need to add some input!</p>
   }
   @if(Model.Count != 0)
   {
@@ -27,10 +28,10 @@
   </ul>
 
 
-  <a href="/words/new">Add a new place.</a>
+  <a href="/words/new">Play Again</a>
 
-  @* <form action="/items/delete" method="post">
-    <button type="submit" name="button">Clear All Items</button>
-  </form> *@
+  <form action="/items/delete" method="post">
+    <button type="submit" name="button">Clear All</button>
+  </form>
 </body>
 </html>

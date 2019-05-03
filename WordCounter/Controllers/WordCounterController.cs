@@ -27,24 +27,27 @@ namespace WordCounter.Controllers
       return View();
     }
 
-    [HttpPost("/words")]
-    public ActionResult Create(string userWord, string userSentence)
-    {
-      Words myWords = new Words(userWord, userSentence);
-      return RedirectToAction("Index");
-    }
-    // [HttpPost("/items/delete")]
-    // public ActionResult DeleteAll()
-    // {
-    //   Words.ClearAll();
-    //   return View();
-    // }
-    //
     [HttpGet("/words/{id}")]
     public ActionResult Show(int id)
     {
       Words words = Words.Find(id);
       return View(words);
     }
+
+    [HttpPost("/words")]
+    public ActionResult Create(string userWord, string userSentence)
+    {
+      Words myWords = new Words(userWord, userSentence);
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost("/items/delete")]
+    public ActionResult DeleteAll()
+    {
+      Words.ClearAll();
+      return View();
+    }
+
+
   }
 }
