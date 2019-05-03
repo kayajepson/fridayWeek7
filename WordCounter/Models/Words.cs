@@ -17,6 +17,7 @@ namespace WordCounter.Models
       Id = _instances.Count;
     }
 
+
     public int GetId()
     {
       return Id;
