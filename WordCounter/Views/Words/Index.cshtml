@@ -15,23 +15,23 @@
   <ul>
   @if (Model.Count == 0)
   {
-    <p>You need to add some input!</p>
+    <p>YOU NEED TO ADD SOME INPUT!</p>
   }
   @if(Model.Count != 0)
   {
     @foreach (Words words in Model)
     {
-      <li><a href='/words/@words.GetId()'>@words.UserWord</a></li>
+      <li><a href='/words/@words.GetId()'>@words.UserWord.ToUpper()</a></li>
 
     }
   }
   </ul>
 
 
-  <a href="/words/new">Play Again</a>
+  <a href="/words/new">PLAY AGAIN</a>
 
   <form action="/items/delete" method="post">
-    <button type="submit" name="button">Clear All</button>
+    <button type="submit" name="button">CLEAR ALL</button>
   </form>
 </body>
 </html>
