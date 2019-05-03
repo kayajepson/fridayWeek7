@@ -3,16 +3,18 @@
   <head>
     <meta charset='utf-8'>
     <title>Hello friend!</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link href="~/css/site.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <h1>Details: </h1>
 
     <h2>Word: @Model.UserWord</h2>
-    <h5>Sentence: @Model.UserSentence</h5>
-    <h5>Times "@Model.UserWord" appears in "@Model.UserSentence": @Model.RepeatCount </h5>
+    <h3>Sentence: @Model.UserSentence</h3>
+    <h3>Times "@Model.UserWord" appears in "@Model.UserSentence": @Model.RepeatCount </h3>
 
 
-    <a href='/words/new'>Add another word</a>
+    <a href='/words/new'>Add another word</a> <br>
     <a href='/words'>View all words</a>
 
   </body>

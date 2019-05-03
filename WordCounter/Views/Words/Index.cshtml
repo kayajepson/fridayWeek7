@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title></title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link href="~/css/site.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   @using WordCounter.Models;
@@ -18,8 +20,6 @@
   {
     @foreach (Words words in Model)
     {
-      <li><a href='/words/@words.GetId()'>@words.UserWord</a></li>
-      <li><a href='/words/@words.GetId()'>@words.UserWord</a></li>
       <li><a href='/words/@words.GetId()'>@words.UserWord</a></li>
 
     }
